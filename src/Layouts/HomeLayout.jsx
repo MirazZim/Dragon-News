@@ -1,5 +1,6 @@
 import Header from "../Components/Header";
 import LatestNews from "../Components/LatestNews";
+import Navbar from "../Components/Navbar";
 
 
 const HomeLayout = () => {
@@ -9,6 +10,10 @@ const HomeLayout = () => {
                 <Header></Header>
                 <section className="w-11/12 mx-auto">
                     <LatestNews></LatestNews>
+                </section>
+
+                <section className="w-11/12 mx-auto py-3">
+                    <Navbar></Navbar>
                 </section>
             </header>
             
