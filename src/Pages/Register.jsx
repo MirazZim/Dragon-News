@@ -5,7 +5,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 const Register = () => {
 
-    const{createNewUser} = useContext(AuthContext)
+    const{createNewUser  , setUser} = useContext(AuthContext)
 
 
     const handleSubmit = (e) => {
@@ -20,9 +20,10 @@ const Register = () => {
         console.log({name, email, photo, password})
 
         createNewUser(email, password)
-            .then(result => {
-                console.log(result.user);
-                e.target.reset();
+            .then((result) => {
+                const user = result.user;
+                setUser(user);
+                console.log(user);
 
             })
             .catch(error => {
