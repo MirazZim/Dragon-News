@@ -17,10 +17,10 @@ const NewsDetails = () => {
             <main className="w-11/12 mx-auto grid grid-cols-12 gap-5">
 
                 <section className="col-span-9">
-                    <h2 className="font-semibold mb-4">Dragon News</h2>
+                    <h2 className="font-semibold mb-4 text-black">Dragon News</h2>
 
 
-                    <div className="card bg-white shadow-2xl ">
+                    <div className="card bg-white shadow-2xl text-black ">
                         <figure className="px-10 pt-10">
                             <img
                                 src= {news?.image_url}
