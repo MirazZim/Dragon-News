@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
 
     const { userLogIn , setUser } = useContext(AuthContext);
+    const [error, setError] = useState({});
 
     const location = useLocation();
 
@@ -29,8 +30,9 @@ const Login = () => {
                 navigate(location?.state ? location.state : "/")
 
             })
-            .catch(error => {
-                console.log('ERROR', error.message)
+            .catch(err => {
+               
+                setError({...error, login: err.code })
             })
 
     }
@@ -58,6 +60,15 @@ const Login = () => {
                             <span className="label-text font-semibold">Password</span>
                         </label>
                         <input name="password" type="password" placeholder="password" className="input input-bordered bg-gray-300" required />
+
+                        
+                        {
+                            error.login && <label className="label text-sm text-red-600">
+                               The Password is Incorrect 
+                            </label>
+                        }
+
+
                         <label className="label">
                             <a href="#" className="label-text-alt link link-hover font-semibold">Forgot password?</a>
                         </label>
